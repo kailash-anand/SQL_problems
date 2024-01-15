@@ -1,0 +1,8 @@
+-- Write your PostgreSQL query statement below
+Select customer_id
+From Customer
+Group By customer_id
+Having Count(Distinct product_key) = All(
+    Select Count(product_key)
+    From Product
+);
